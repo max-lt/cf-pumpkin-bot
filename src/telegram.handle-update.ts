@@ -43,14 +43,20 @@ export async function handleUpdate(update: Update) {
         reply_markup: {
           inline_keyboard: [
             [
-              {
-                text: 'buy',
-                callback_data: 'buy'
-              },
-              {
-                text: 'sell',
-                callback_data: 'sell'
-              }
+              { text: 'buy', callback_data: 'buy' },
+              { text: 'sell', callback_data: 'sell' }
+            ],
+            [
+              { text: 'long', callback_data: 'buy' },
+              { text: 'short', callback_data: 'sell' }
+            ],
+            [
+              { text: 'long 2x', callback_data: 'buy' },
+              { text: 'short 2x', callback_data: 'sell' }
+            ],
+            [
+              { text: 'long 3x', callback_data: 'buy' },
+              { text: 'short 3x', callback_data: 'sell' }
             ]
           ]
         }
@@ -67,13 +73,13 @@ export async function handleUpdate(update: Update) {
         chat_id: message.chat.id, 
         message_id: message.message_id
       });
-      await sendMessage(message.chat.id, `Ok ${query.from.first_name}, j'achète !`);
+      await sendMessage(message.chat.id, `Ok ${query.from.first_name}, j'achète du Bitcorn !`);
     } else if (query.data == 'sell') {
       await editMessageText(message.text, {
         chat_id: message.chat.id, 
         message_id: message.message_id
       });
-      await sendMessage(message.chat.id, `Ok ${query.from.first_name}, je vends !`);
+      await sendMessage(message.chat.id, `Ok ${query.from.first_name}, je vends le Bitcorn !`);
     }
   }
 
