@@ -1,0 +1,24 @@
+{
+  "private": false,
+  "name": "cloudflare-worker-ts-template",
+  "version": "1.0.0",
+  "description": "Cloudflare worker template",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack --watch | wrangler dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "max-lt <https://github.com/max-lt>",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.3.0",
+    "moment": "^2.29.1",
+    "prettier": "^1.19.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
