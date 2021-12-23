@@ -1,12 +1,12 @@
 {
   "private": false,
   "name": "cloudflare-worker-ts-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cloudflare worker template",
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack",
-    "postbuild": "prettier --write dist/*.js",
+    "postbuild": "sed -i \"s/\\\"<version>\\\"/$(jq '.version' package.json)/\" dist/index.js; prettier --write dist/*.js",
     "dev": "webpack --watch | wrangler dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
