@@ -7,10 +7,12 @@
     "alwaysStrict": true,
     "strict": true,
     "preserveConstEnums": true,
-    "moduleResolution": "node",
+    "moduleResolution": "classic",
     "sourceMap": true,
     "esModuleInterop": true,
     "types": [
+      "./types",
+      "@types/node-telegram-bot-api",
       "@cloudflare/workers-types"
     ]
   },
