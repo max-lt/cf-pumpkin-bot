@@ -16,12 +16,12 @@ addEventListener('scheduled', (event) => {
 });
 
 async function handleSchedule(scheduledDate: number) {
-  const res = await fetch('https://api.kraken.com/0/public/Ticker?pair=BTCEUR');
+  const res = await fetch('https://api.kraken.com/0/public/Ticker?pair=BTCEUR,BTCUSD');
   const json = await res.json<any>();
-  const price = parseInt(json.result.XXBTZEUR.a[0]);
+  const { XXBTZEUR: eur, XXBTZUSD: usd } = json.result;
   const options = { disable_notification: true };
 
-  await broadcast(`Le Bitcoin s'échange actuellement à ${price}€`, options);
+  await broadcast(`Le Bitcoin s'échange actuellement à ${eur.a[0]}€ ($${usd.a[0]})`, options);
 }
 
 async function handleRequest(request: Request): Promise<Response> {
